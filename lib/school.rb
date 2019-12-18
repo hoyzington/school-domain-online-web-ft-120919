@@ -9,8 +9,10 @@ class School
   attr_reader :name, :roster
   
   def add_student(name, grade)
-    if @roster[grade] == true
-      @roster[grade] << name
+    if @roster.keys.include?(grade)
+    @roster.map do |gr, nm|
+      if gr == grade
+        @roster[gr] << name
     else
       @roster[grade] = [name]
     end
